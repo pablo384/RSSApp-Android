@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RSSprueba</string>
+    <string name="Rss1">Diario Libre</string>
+    <string name="Rss2">Listin Diario</string>
+    <string name="Rss3">El Nacional</string>
+    <string name="URLRss1">https://www.diariolibre.com/rss/portada.xml</string>
+    <string name="URLRss2">http://www.listindiario.com/rss/portada/</string>
+    <string name="URLRss3">http://elnacional.com.do/feed/</string>
+</resources>
