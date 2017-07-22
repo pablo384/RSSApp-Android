@@ -19,23 +19,37 @@ import java.util.ArrayList;
 import java.util.List;
 //import java.util.List;
 
-import static com.example.faustino.rssprueba.MainActivity.FEED_URL;
+//import static com.example.faustino.rssprueba.MainActivity.FEED_URL;
 
 public class RssDetails extends AppCompatActivity {
-    ListView feedlistview = (ListView) findViewById(R.id.my_list);
+    //ListView feedlistview = (ListView) findViewById(R.id.my_list);
+    ListView lstOpciones;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rssdetails);
 
+        final String[] datos =
+                new String[]{"Pablo1","Elem2","Elem3","Elem4","Elem5"};
 
-        String url = (String) getIntent().getExtras().get(FEED_URL);
+        ArrayAdapter<String> adaptador =
+                new ArrayAdapter<String>(this,
+                        android.R.layout.simple_list_item_1, datos);
+        lstOpciones = (ListView)findViewById(R.id.LstOpciones);
+
+
+
+
+        String url = "https://www.diariolibre.com/rss/portada.xml"; //(String) getIntent().getExtras().get(FEED_URL);
         Parser parser = new Parser();
         parser.onFinish(new Parser.OnTaskCompleted() {
             @Override
             public void onTaskCompleted(ArrayList<Article> list) {
-                feedlistview.setAdapter(new FeedAdapter(list));
+                lstOpciones.setAdapter(new FeedAdapter(RssDetails.this,R.layout.listitem_titular,list));
+
+
+
             }
 
             @Override
@@ -46,21 +60,6 @@ public class RssDetails extends AppCompatActivity {
         parser.execute(url);
     }
 
-    public class FeedAdapter extends ArrayAdapter<Article> {
 
-        public FeedAdapter(@NonNull List<Article> Objects) {
-            this(RssDetails.this, 0, Objects);
-        }
-
-        public FeedAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<Article> object) {
-            super(context, resource, object);
-        }
-
-//        public View getView() {
-//            View view =
-//            return view;
-//        }
-
-    }
 
 }

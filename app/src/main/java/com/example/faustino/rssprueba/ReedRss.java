@@ -23,7 +23,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 public class ReedRss extends AsyncTask<Void, Void, Void> {
 
     Context context;
-    String addRess = R.string.Rss1;
+    String addRess = context.getResources().getString(R.string.Rss1) ;
     ProgressDialog progressDialog;
     URL url;
 
