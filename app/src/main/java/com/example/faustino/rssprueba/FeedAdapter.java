@@ -34,4 +34,5 @@ public class FeedAdapter extends ArrayAdapter<Article> {
         return(item);
     }
 
+
 }
